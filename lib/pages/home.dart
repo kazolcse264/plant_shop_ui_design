@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
+import 'package:plant_shop_ui_design/pages/plant_detail.dart';
 import 'package:plant_shop_ui_design/provider/plant_provider.dart';
 import 'package:plant_shop_ui_design/utils/color_pallet.dart';
 import 'package:provider/provider.dart';
@@ -168,11 +169,7 @@ class _HomeState extends State<Home> {
       ),
       GestureDetector(
         onTap: () {
-          /*  Get.to(
-                    () => PlantDetail(id: id),
-                transition: Transition.rightToLeftWithFade,
-                duration: const Duration(milliseconds: 800),
-              );*/
+         Navigator.pushNamed(context, PlantDetail.routeName,arguments: id,);
         },
         child: Container(
           margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),

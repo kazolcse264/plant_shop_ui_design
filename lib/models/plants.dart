@@ -116,3 +116,9 @@ List<Map<String, dynamic>> plantsList = [
     ]
   },
 ];
+class PlantDetailArguments {
+  final int id;
+  final String someOtherValue;
+
+  PlantDetailArguments({required this.id, required this.someOtherValue});
+}
