@@ -2,10 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:plant_shop_ui_design/pages/intro.dart';
+import 'package:plant_shop_ui_design/provider/plant_provider.dart';
+import 'package:plant_shop_ui_design/router.dart';
 import 'package:plant_shop_ui_design/utils/color_pallet.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => PlantProvider()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -16,12 +27,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Plant Shop UI Design',
-  /*    theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),*/
       theme: _buildThemeData(),
-      home: const Intro(),
+      initialRoute: Intro.routeName,
+      onGenerateRoute: (settings) {
+        return AppRouter.generateRoute(settings);
+      },
+      //home: const Intro(),
     );
   }
 
@@ -67,5 +78,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-

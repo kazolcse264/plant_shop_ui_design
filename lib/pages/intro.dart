@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
+import 'package:plant_shop_ui_design/pages/home.dart';
 import 'package:plant_shop_ui_design/utils/color_pallet.dart';
 
 class Intro extends StatefulWidget {
+
+  static const String routeName = "/";
   const Intro({super.key});
 
   @override
@@ -13,6 +16,13 @@ class _IntroState extends State<Intro> {
   PageController pageController = PageController();
   int currentSlideIndex = 0;
 
+/*  void gotoHomeScreen() {
+    Get.to(
+          () => const Home(),
+      transition: Transition.rightToLeftWithFade,
+      duration: const Duration(milliseconds: 1000),
+    );
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +34,9 @@ class _IntroState extends State<Intro> {
               alignment: Alignment.centerRight,
               padding: const EdgeInsets.all(10),
               child: TextButton(
-                onPressed: (){},
+                onPressed: (){
+                  Navigator.pushNamed(context, Home.routeName);
+                },
                 child: Text(
                   'Skip',
                   style: Theme.of(context).textTheme.titleMedium,
@@ -119,7 +131,9 @@ class _IntroState extends State<Intro> {
 
   _buildArrowButton() {
     return GestureDetector(
-      onTap: (){},
+      onTap: (){
+        Navigator.pushNamed(context, Home.routeName);
+      },
       child: Container(
         margin: const EdgeInsets.only(top: 40),
         width: 100,

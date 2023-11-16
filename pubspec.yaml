@@ -39,6 +39,7 @@ dependencies:
   google_fonts:
   icons_plus:
   url_launcher:
+  provider:
 
 dev_dependencies:
   flutter_test:
